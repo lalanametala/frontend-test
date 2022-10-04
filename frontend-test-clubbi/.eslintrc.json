@@ -5,14 +5,16 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "airbnb"
+    "airbnb",
+    "standard-with-typescript"
   ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "plugins": [
     "react",
@@ -21,6 +23,8 @@
   "rules": {
     "react/jsx-filename-extension": [0],
     "react-hooks/exhaustive-deps": "off",
-    "no-param-reassign": ["warn", { "props": true, "ignorePropertyModificationsFor": ["state"] }]
+    "no-param-reassign": ["warn", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off"
   }
 }
