@@ -20,11 +20,31 @@
     "react",
     "react-hooks"
   ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   "rules": {
     "react/jsx-filename-extension": [0],
     "react-hooks/exhaustive-deps": "off",
-    "no-param-reassign": ["warn", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
+    "no-param-reassign": ["warn", { "props": true,
+    "react/jsx-props-no-spreading": "off",
+    "ignorePropertyModificationsFor": ["state"] }],
     "@typescript-eslint/consistent-type-definitions": "off",
-    "@typescript-eslint/strict-boolean-expressions": "off"
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ]
   }
 }
