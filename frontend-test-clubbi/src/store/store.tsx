@@ -3,7 +3,7 @@ import charactersReducer from './characters'
 import filmsReducer from './films'
 import filtersReducer from './filters'
 import locationsReducer from './locations'
-import orderReducer from './order'
+import sortReducer from './sort'
 import themeReducer from './theme'
 
 const store = configureStore({
@@ -13,7 +13,7 @@ const store = configureStore({
     films: filmsReducer,
     locations: locationsReducer,
     filters: filtersReducer,
-    order: orderReducer
+    sort: sortReducer
   }
 })
 

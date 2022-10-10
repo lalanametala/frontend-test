@@ -11,6 +11,7 @@ import navLinks from './utils'
 import { RootState } from '../../store/store'
 import StudioLogo from '../StudioGhibliLogo'
 import { resetAllFilters } from '../../store/filters'
+import { resetAllSorters } from '../../store/sort'
 
 function Header (): JSX.Element {
   const [anchorElNav, setAnchorElNav] = useState(false)
@@ -25,6 +26,7 @@ function Header (): JSX.Element {
 
   const handleCloseNavMenu = (): void => {
     dispatch(resetAllFilters())
+    dispatch(resetAllSorters())
     setAnchorElNav(false)
   }
 

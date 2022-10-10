@@ -2,10 +2,12 @@ import { Container, Grid } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import DisplayCard from '../../components/FilmCard'
-import FilterOrderForm from '../../components/FilterOrderForm'
+import FilterOrderForm from '../../components/FilterSortForm'
+import { filmSortOptions } from '../../components/FilterSortForm/utils'
 import { IFilm } from '../../interfaces/IFilm'
 import { fetchFilmsData } from '../../store/films'
 import { AppDispatch, RootState } from '../../store/store'
+import { sortFilms } from '../../utils'
 
 export default function Films (): JSX.Element {
   const useAppDispatch: () => AppDispatch = useDispatch
@@ -14,6 +16,7 @@ export default function Films (): JSX.Element {
   const dispatch = useAppDispatch()
   const storedFilms = useSelector((state: RootState) => state.films.data)
   const filmFilter = useSelector((state: RootState) => state.filters.films)
+  const filmOrder = useSelector((state: RootState) => state.sort.films)
 
   useEffect(() => {
     if (!storedFilms.length) dispatch(fetchFilmsData())
@@ -22,6 +25,12 @@ export default function Films (): JSX.Element {
   useEffect(() => {
     setFilms(storedFilms)
   }, [storedFilms])
+
+  useEffect(() => {
+    const orderedFilms = sortFilms([...storedFilms], filmOrder)
+
+    setFilms(orderedFilms)
+  }, [filmOrder])
 
   return (
     <Container
@@ -33,7 +42,7 @@ export default function Films (): JSX.Element {
         alignItems: 'center',
       }}
     >
-      <FilterOrderForm page="films" filterBy="Search by films" />
+      <FilterOrderForm page="films" filterBy="Search by films" sortOptions={filmSortOptions}/>
       <Grid
         container
         component="section"

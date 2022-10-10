@@ -2,11 +2,13 @@ import { Container, Grid } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import DisplayCard from '../../components/CharacterCard'
-import FilterOrderForm from '../../components/FilterOrderForm'
+import FilterOrderForm from '../../components/FilterSortForm'
+import { charSortOptions } from '../../components/FilterSortForm/utils'
 import { ICharacter } from '../../interfaces/ICharacter'
 import { IFilm } from '../../interfaces/IFilm'
 import { fetchCharactersData } from '../../store/characters'
 import { AppDispatch, RootState } from '../../store/store'
+import { sortCharacters } from '../../utils'
 
 export default function Characters (): JSX.Element {
   const useAppDispatch: () => AppDispatch = useDispatch
@@ -15,6 +17,7 @@ export default function Characters (): JSX.Element {
   const dispatch = useAppDispatch()
   const storedCharacters = useSelector((state: RootState) => state.characters.data)
   const characterFilter = useSelector((state: RootState) => state.filters.characters)
+  const characterSort = useSelector((state: RootState) => state.sort.characters)
 
   useEffect(() => {
     if (!storedCharacters.length) dispatch(fetchCharactersData())
@@ -22,9 +25,12 @@ export default function Characters (): JSX.Element {
 
   useEffect(() => {
     setCharacters(storedCharacters)
-    console.log(storedCharacters);
-    
   }, [storedCharacters])
+
+  useEffect(() => {
+    const sortedCharacters = sortCharacters([...storedCharacters], characterSort)
+    setCharacters(sortedCharacters)
+  }, [characterSort])
 
   return (
     <Container
@@ -36,7 +42,7 @@ export default function Characters (): JSX.Element {
         alignItems: 'center',
       }}
     >
-      <FilterOrderForm page="characters" filterBy="Search by characters" />
+      <FilterOrderForm page="characters" filterBy="Search by characters" sortOptions={charSortOptions} />
       <Grid
         container
         component="section"

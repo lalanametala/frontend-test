@@ -6,14 +6,16 @@ import {
 import React, { ChangeEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCharacterFilter, setFilmFilter, setLocationFilter } from '../../store/filters';
-import { setCharacterOrder, setFilmOrder, setLocationOrder } from '../../store/order';
+import { setCharacterSort, setFilmSort, setLocationSort } from '../../store/sort';
+import { sortOptions } from './utils';
 
 type props = {
   page: string
   filterBy: string
+  sortOptions: sortOptions[]
 }
 
-function FilterOrderForm({ page, filterBy }: props) {
+function FilterOrderForm({ page, filterBy, sortOptions }: props) {
   const [filterForm, setFilterForm] = useState({
     filterInput: '',
     orderSelect: '',
@@ -39,15 +41,18 @@ function FilterOrderForm({ page, filterBy }: props) {
       }
     } else {
       setFilterForm({...filterForm, orderSelect: value })
+
+      const [parameter, sort] = value.split('-')  
+    
       switch (page) {
         case 'films':
-          dispatch(setFilmOrder(value))
+          dispatch(setFilmSort({ parameter, sort }))
           break;
         case 'characters':
-          dispatch(setCharacterOrder(value))
+          dispatch(setCharacterSort({ parameter, sort }))
           break;
         default:
-          dispatch(setLocationOrder(value))
+          dispatch(setLocationSort({ parameter, sort }))
           break;
       }
     }
@@ -82,9 +87,9 @@ function FilterOrderForm({ page, filterBy }: props) {
             select
             onChange={handleChange}
           >
-            {['A-Z', 'Z-A'].map((value) => (
-              <MenuItem key={value} value={value}>
-                {value}
+            {sortOptions.map(({title, value, label}) => (
+              <MenuItem key={label} title={title} value={value} >
+                {label}
               </MenuItem>
             ))}
           </TextField>
