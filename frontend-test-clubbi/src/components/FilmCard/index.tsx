@@ -41,7 +41,7 @@ export default function DisplayCard (film: IFilm): JSX.Element {
       />
       <CardContent sx={{ paddingTop: 0, paddingBottom: '5px' }}>
         <Typography>
-          {film.release_date}
+          {`${film.release_date} - ${film.running_time} min`}
         </Typography>
       </CardContent>
       <CardContent sx={{ paddingTop: 0 }}>
