@@ -31,7 +31,7 @@ function Header (): JSX.Element {
   }
 
   return (
-    <AppBar sx={{ backgroundColor: palette.secondary.main }}>
+    <AppBar data-testid="header" sx={{ backgroundColor: palette.secondary.main }}>
       <Container>
         <Toolbar disableGutters>
           <StudioLogo logoMargin="0px" logoHeight="80px" logoPadding="10px" dispXS="none" dispSM="none" dispMD="block" pgTheme="dark" />
@@ -94,6 +94,7 @@ function Header (): JSX.Element {
               display: 'flex',
               justifyContent: 'center'
             }}
+            data-testid="studio-logo-header"
           >
             <StudioLogo logoMargin="0px" logoHeight="40px" logoPadding="0px" dispXS="block" dispSM="block" dispMD="none" pgTheme="dark" />
           </Box>
@@ -140,6 +141,7 @@ function Header (): JSX.Element {
               alignItems: 'center',
               display: { xs: 'none', md: 'flex' }
             }}
+            data-testid="darkmode-btn"
           >
             <IconButton
               size="large"
