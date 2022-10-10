@@ -65,12 +65,18 @@ export default function DisplayCard (film: IFilm): JSX.Element {
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent sx={{ paddingTop: 0 }}>
-          <Typography sx={{ paddingBottom: '5px' }}>
+        <CardContent sx={{ paddingTop: 0, paddingBottom: '5px' }}>          
+          <Typography sx={{ paddingBottom: '16px', fontSize: '20px' }}>
             <strong>Description</strong>
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" sx={{ paddingBottom: '14px' }}>
             {film.description}
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ paddingY: '2px', fontStyle: 'italic' }}>
+            {`Directed By ${film.director}`}
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ paddingBottom: '5px', fontStyle: 'italic' }}>
+            {`Produced By ${film.producer}`}
           </Typography>
         </CardContent>
       </Collapse>
