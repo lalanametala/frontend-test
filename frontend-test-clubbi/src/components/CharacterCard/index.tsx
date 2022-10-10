@@ -46,6 +46,7 @@ export default function DisplayCard (character: ICharacter): JSX.Element {
       <CardContent sx={{ paddingTop: 0 }}>
         <Typography>
           {`Films:${character.films.map((film) => {
+            if (!film || !storedFilms.length) return null
             const filmInfo = storedFilms.find(({url}) => film === url) as IFilm
             return ` ${filmInfo.title}`
           })}`}

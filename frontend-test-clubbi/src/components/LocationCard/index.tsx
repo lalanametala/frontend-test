@@ -51,6 +51,7 @@ export default function DisplayCard (location: ILocation): JSX.Element {
       <CardContent sx={{ paddingTop: 0, paddingBottom: '5px' }}>
         <Typography>
           {`Films:${location.films.map((film) => {
+            if (!film || !storedFilms.length) return null
             const filmInfo = storedFilms.find(({url}) => film === url) as IFilm
             return ` ${filmInfo.title}`
           })}`}
@@ -59,6 +60,7 @@ export default function DisplayCard (location: ILocation): JSX.Element {
       <CardContent sx={{ paddingTop: 0 }}>
         <Typography>
           {`Residents:${location.residents.map((character) => {
+            if (!character || !storedCharacters.length) return null
             if (character === 'TODO') return ' TODO'
             const characterInfo = storedCharacters.find(({url}) => character === url) as ICharacter
             
