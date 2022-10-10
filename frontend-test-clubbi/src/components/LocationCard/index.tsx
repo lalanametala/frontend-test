@@ -59,7 +59,7 @@ export default function DisplayCard (location: ILocation): JSX.Element {
       <CardContent sx={{ paddingTop: 0 }}>
         <Typography>
           {`Residents:${location.residents.map((character) => {
-            if (character === 'TODO') return 'TODO'
+            if (character === 'TODO') return ' TODO'
             const characterInfo = storedCharacters.find(({url}) => character === url) as ICharacter
             
             return ` ${characterInfo.name}`
