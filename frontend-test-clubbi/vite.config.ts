@@ -3,10 +3,14 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    host: '0.0.0.0',
+    port: 3000,
+  },
   plugins: [
     react({
       jsxRuntime: 'classic',
-      include: ['**/*.json', '**/*.less', '**/*.tsx'] // it's unnecessary and cause the page full-reload
+      include: ['**/*.json', '**/*.less', '**/*.tsx']
     })
   ]
 })
