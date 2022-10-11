@@ -71,6 +71,7 @@ function Footer (): JSX.Element {
               target="_blank"
               rel="noreferrer"
               variant="button"
+              data-testid="github-link"
               href="https://github.com/lalanametala"
               color={colors.babyBlue}
               sx={{
@@ -89,6 +90,7 @@ function Footer (): JSX.Element {
               target="_blank"
               rel="noreferrer"
               variant="button"
+              data-testid="linkedin-link"
               href="https://www.linkedin.com/in/la%C3%ADs-nametala/"
               color={colors.babyBlue}
               sx={{
