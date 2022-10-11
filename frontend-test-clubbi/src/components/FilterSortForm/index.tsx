@@ -87,8 +87,8 @@ function FilterOrderForm({ page, filterBy, sortOptions }: props) {
             select
             onChange={handleChange}
           >
-            {sortOptions.map(({title, value, label}) => (
-              <MenuItem key={label} title={title} value={value} >
+            {sortOptions.map(({title, value, label}, index) => (
+              <MenuItem data-testid={`select-${index}`} key={label} title={title} value={value} >
                 {label}
               </MenuItem>
             ))}
