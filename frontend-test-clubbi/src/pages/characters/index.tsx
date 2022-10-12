@@ -6,6 +6,7 @@ import FilterOrderForm from '../../components/FilterSortForm'
 import { charSortOptions } from '../../components/FilterSortForm/utils'
 import { ICharacter } from '../../interfaces/ICharacter'
 import { fetchCharactersData } from '../../store/characters'
+import { fetchFilmsData } from '../../store/films'
 import { AppDispatch, RootState } from '../../store/store'
 import { sortCharacters } from '../../utils'
 
@@ -17,9 +18,12 @@ export default function Characters (): JSX.Element {
   const storedCharacters = useSelector((state: RootState) => state.characters.data)
   const characterFilter = useSelector((state: RootState) => state.filters.characters)
   const characterSort = useSelector((state: RootState) => state.sort.characters)
+  const storedFilms = useSelector((state: RootState) => state.films.data)
+
 
   useEffect(() => {
     if (!storedCharacters.length) dispatch(fetchCharactersData())
+    if (!storedFilms.length) dispatch(fetchFilmsData())
   }, [])
 
   useEffect(() => {

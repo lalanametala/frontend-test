@@ -1,25 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Card, CardHeader, CardContent, Typography } from '@mui/material'
 import useElevation from '../../hooks'
 import { ILocation } from '../../interfaces/ILocation'
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, RootState } from '../../store/store'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store/store'
 import { IFilm } from '../../interfaces/IFilm'
 import { ICharacter } from '../../interfaces/ICharacter'
-import { fetchFilmsData } from '../../store/films'
-import { fetchCharactersData } from '../../store/characters'
 
 export default function DisplayCard (location: ILocation): JSX.Element {
   const { elevation, handleMouseOver, handleMouseOut } = useElevation()
   const storedFilms = useSelector((state: RootState) => state.films.data)
   const storedCharacters = useSelector((state: RootState) => state.characters.data)
-  const useAppDispatch: () => AppDispatch = useDispatch
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    if (!storedFilms.length) dispatch(fetchFilmsData())
-    if (!storedCharacters.length) dispatch(fetchCharactersData())
-  }, [])
 
   return (
     <Card 

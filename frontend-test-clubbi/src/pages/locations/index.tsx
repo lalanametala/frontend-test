@@ -5,6 +5,8 @@ import FilterOrderForm from '../../components/FilterSortForm'
 import { locSortOptions } from '../../components/FilterSortForm/utils'
 import DisplayCard from '../../components/LocationCard'
 import { ILocation } from '../../interfaces/ILocation'
+import { fetchCharactersData } from '../../store/characters'
+import { fetchFilmsData } from '../../store/films'
 import { fetchLocationsData } from '../../store/locations'
 import { AppDispatch, RootState } from '../../store/store'
 import { sortLocations } from '../../utils'
@@ -17,9 +19,13 @@ export default function Locations (): JSX.Element {
   const storedLocations = useSelector((state: RootState) => state.locations.data)
   const locationFilter = useSelector((state: RootState) => state.filters.locations)
   const locationSort = useSelector((state: RootState) => state.sort.locations) 
+  const storedFilms = useSelector((state: RootState) => state.films.data)
+  const storedCharacters = useSelector((state: RootState) => state.characters.data)
 
   useEffect(() => {
     if (!storedLocations.length) dispatch(fetchLocationsData())
+    if (!storedFilms.length) dispatch(fetchFilmsData())
+    if (!storedCharacters.length) dispatch(fetchCharactersData())
   }, [])
 
   useEffect(() => {
