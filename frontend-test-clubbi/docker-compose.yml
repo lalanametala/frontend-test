@@ -2,10 +2,28 @@ version: '3.8'
 
 services:
   dev:
-    build: 
-      context: ./
-      dockerfile: Dockerfile
-    volumes:
-      - ./:/app
+    build: ./
     ports:
-      - '3000:3000'
+      - 3000:3000
+    platform: linux/x86_64
+    working_dir: /app
+    restart: 'always'
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3000"]  
+      timeout: 10s
+      retries: 5
+  cypress:
+    image: "cypress/included:10.10.0"
+    depends_on:
+      - dev
+    environment:
+      - CYPRESS_baseUrl=http://localhost:3000
+      - CYPRESS_file="cypress.config.ts"
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
+    restart: 'always'
+    command: bash
+networks:
+  default:
+    name: frontend_clubbi_net
