@@ -31,10 +31,10 @@ export default function Home (): JSX.Element {
         flexDirection: 'column',
         paddingX: { xs: '70px', sm: '70px', md: '90px' },
         width: '100vw',
-        marginY: { xs: '50px', sm: '50px', md: '120px' },
+        marginY: { xs: '10px', sm: '50px', md: '120px' },
         justifyContent: 'space-around',
         alignItems: 'center',
-        gap: '100px'
+        gap: {xs: '70px', md: '100px'}
       }}
       columns={{ xs: 4, sm: 4, md: 12 }}
     >

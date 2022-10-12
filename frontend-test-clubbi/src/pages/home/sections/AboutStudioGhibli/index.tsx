@@ -8,7 +8,7 @@ export default function About (): JSX.Element {
       columns={{ xs: 4, sm: 4, md: 4 }}
       component="section"
       sx={{
-        marginLeft: '10%',
+        marginLeft: { md: '5%' },
         width: { xs: '100%', sm: '80%', md: '80%' }
       }}
     >
@@ -22,7 +22,7 @@ export default function About (): JSX.Element {
           component="h2"
           align="left"
           gutterBottom
-          sx={{ fontFamily: '"Sniglet", cursive', fontWeight: 700, paddingBottom: '20px', paddingTop: '50px' }}
+          sx={{ fontFamily: '"Sniglet", cursive', fontWeight: 700, paddingBottom: '20px', fontSize: { xs: '30px'} }}
         >
           Studio Ghibli
         </Typography>
@@ -34,7 +34,7 @@ export default function About (): JSX.Element {
         <Typography
           align="left"
           paragraph
-          sx={{ fontSize: { xs: '20px', sm: '24px', md: '20px' }, paddingY: '10px' }}
+          sx={{ fontSize: { xs: '18px', sm: '24px', md: '20px' }, paddingY: '10px' }}
         >
           Studio Ghibli is a Japanese animation studio based in Koganei, Tokyo.
           Founded in 1985, the studio has produced 21 animated features, the
