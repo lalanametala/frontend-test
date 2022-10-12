@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, Typography, styled, IconButton, IconButtonProps } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import MovieRating from '../Rating'
-import { IFilm, IFilmWithNames } from '../../interfaces/IFilm'
+import { IFilm } from '../../interfaces/IFilm'
 import useElevation from '../../hooks'
 
 interface ExpandMoreProps extends IconButtonProps {
