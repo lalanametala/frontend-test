@@ -61,7 +61,7 @@ describe('Films', () => {
     cy.get('[data-testid="select-7"').click()
     cy.get('.css-1fbhxaw-MuiPaper-root-MuiCard-root').first().should('include.text', 'Earwig and the Witch')
   })
-  it.only('displays the details of the film when clicking the expand button in the film card', () => {
+  it('displays the details of the film when clicking the expand button in the film card', () => {
     cy.get('[data-testid="ExpandMoreIcon"]').first().click()
     cy.contains('Description')
     cy.contains(allFilms[0].description)
