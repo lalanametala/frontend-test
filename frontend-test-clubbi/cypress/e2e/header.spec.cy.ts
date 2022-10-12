@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+import { allFilms } from "../mocks/films";
+
 describe('Header', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
@@ -27,5 +29,15 @@ describe('Header', () => {
   it('changes the color theme', () => {
     cy.get('[data-testid="darkmode-btn"]').click()
     cy.get('[data-testid="header"]').should('have.css','background-color', 'rgb(13, 36, 48)');
+  })
+  it('resets filters when changing pages', () => {
+    cy.intercept('https://ghibliapi.herokuapp.com/films', allFilms)
+    cy.contains(/films/i).click()
+    cy.get('.MuiSelect-select').click()
+    cy.get('[data-testid="select-0"').click()
+    cy.get('.css-1fbhxaw-MuiPaper-root-MuiCard-root').first().should('include.text', 'Arrietty')
+    cy.contains(/home/i).click()
+    cy.contains(/films/i).click()
+    cy.get('.css-1fbhxaw-MuiPaper-root-MuiCard-root').first().should('not.include.text', 'Arrietty')
   })
 })
