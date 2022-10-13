@@ -48,6 +48,21 @@ export const descSorterNumber = (a: mappedDataType, b: mappedDataType): number =
   return 0
 }
 
+const elseSorter = (
+  mappedData: mappedDataType[],
+  sort: string,
+  parameter: string,
+  data: any[]
+): any[] => {
+  const knownData = mappedData.filter((item) => !Number.isNaN(Number(item.value)))
+
+  if (sort === 'asc') knownData.sort(ascSorterNumber)
+  if (sort === 'desc') knownData.sort(descSorterNumber)
+  const sortedData = knownData.map(({ index }) => data[index])
+  const unknownData = data.filter((item) => Number.isNaN(Number(item[parameter])))
+  return [...sortedData, ...unknownData]
+}
+
 export const sortFilms = (data: IFilm[], order: filmParams): IFilm[] => {
   const { parameter, sort } = order
   const mappedData = data.map((item, index) => ({
@@ -61,13 +76,8 @@ export const sortFilms = (data: IFilm[], order: filmParams): IFilm[] => {
     const sortedData = mappedData.map(({ index }) => data[index])
     return sortedData
   }
-  const knownData = mappedData.filter((item) => !Number.isNaN(Number(item.value)))
 
-  if (sort === 'asc') knownData.sort(ascSorterNumber)
-  if (sort === 'desc') knownData.sort(descSorterNumber)
-  const sortedData = knownData.map(({ index }) => data[index])
-  const unknownData = data.filter((item) => Number.isNaN(Number(item[parameter])))
-  return [...sortedData, ...unknownData]
+  return elseSorter(mappedData, sort, parameter, data)
 }
 
 export const sortCharacters = (data: ICharacter[], order: characterParams): ICharacter[] => {
@@ -83,13 +93,7 @@ export const sortCharacters = (data: ICharacter[], order: characterParams): ICha
     const sortedData = mappedData.map(({ index }) => data[index])
     return sortedData
   }
-  const knownData = mappedData.filter((item) => !Number.isNaN(Number(item.value)))
-
-  if (sort === 'asc') knownData.sort(ascSorterNumber)
-  if (sort === 'desc') knownData.sort(descSorterNumber)
-  const sortedData = knownData.map(({ index }) => data[index])
-  const unknownData = data.filter((item) => Number.isNaN(Number(item[parameter])))
-  return [...sortedData, ...unknownData]
+  return elseSorter(mappedData, sort, parameter, data)
 }
 
 export const sortLocations = (data: ILocation[], order: locationParams): ILocation[] => {
@@ -105,11 +109,5 @@ export const sortLocations = (data: ILocation[], order: locationParams): ILocati
     const sortedData = mappedData.map(({ index }) => data[index])
     return sortedData
   }
-  const knownData = mappedData.filter((item) => !Number.isNaN(Number(item.value)))
-
-  if (sort === 'asc') knownData.sort(ascSorterNumber)
-  if (sort === 'desc') knownData.sort(descSorterNumber)
-  const sortedData = knownData.map(({ index }) => data[index])
-  const unknownData = data.filter((item) => Number.isNaN(Number(item[parameter])))
-  return [...sortedData, ...unknownData]
+  return elseSorter(mappedData, sort, parameter, data)
 }
