@@ -16,15 +16,15 @@ describe('Header', () => {
   })
   it('redirects to the Films page', () => {
     cy.contains(/films/i).click()
-    cy.location().should((loc) => expect(loc.pathname).to.eq('/films'))
+    cy.get('[data-testid="film-card"]')
   })
   it('redirects to the Characters page', () => {
     cy.contains(/characters/i).click()
-    cy.location().should((loc) => expect(loc.pathname).to.eq('/characters'))
+    cy.get('[data-testid="character-card"]')
   })
   it('redirects to the Locations page', () => {
     cy.contains(/locations/i).click()
-    cy.location().should((loc) => expect(loc.pathname).to.eq('/locations'))
+    cy.get('[data-testid="location-card"]')
   })
   it('changes the color theme', () => {
     cy.get('[data-testid="darkmode-btn"]').click()

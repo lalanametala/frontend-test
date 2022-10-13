@@ -45,6 +45,7 @@ export default function DisplayCard (film: IFilm): JSX.Element {
       elevation={elevation}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
+      data-testid="film-card"
       sx={{ width: { xs: '100%', sm: '400px', md: '400px' } }}
     >
       <CardHeader

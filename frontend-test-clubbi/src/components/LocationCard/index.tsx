@@ -16,6 +16,7 @@ export default function DisplayCard (location: ILocation): JSX.Element {
   return (
     <Card
       elevation={elevation}
+      data-testid="location-card"
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
       sx={{

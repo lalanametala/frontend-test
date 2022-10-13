@@ -16,6 +16,7 @@ export default function DisplayCard (character: ICharacter): JSX.Element {
       elevation={elevation}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
+      data-testid="character-card"
       sx={{ width: { xs: '300px', sm: '400px', md: '450px' } }}
     >
       <CardHeader
