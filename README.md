@@ -31,8 +31,13 @@ Este repositório aborda as questões referentes ao desafio técnico proposto pe
   - **Personagens**, que podem ser filtrados por nome e ordenados por: idade e em ordem alfabética dos nomes;
   - **Locais**, que podem ser filtrados por nome e ordenados por: água superficial e em ordem alfabética dos nomes;
  
-
+### 💻 Versão desktop
 ![Preview](./clubbi2.gif)
+
+### 📱 Versão mobile
+<p align="center">
+ <img src="./clubbiMobile.gif" />
+</p>
 
  ---
   
