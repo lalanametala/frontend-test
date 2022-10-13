@@ -4,17 +4,21 @@ import {
 import React from 'react'
 import { VscGithub } from 'react-icons/vsc'
 import { AiFillLinkedin } from 'react-icons/ai'
+import { useLocation } from 'react-router-dom'
 import colors from '../../styles/colors'
 
 function Footer (): JSX.Element {
   const { palette } = useTheme()
+  const { pathname } = useLocation()
+
+  const footerPosition = pathname !== '/films' && pathname !== '/characters' && pathname !== '/locations' ? 'fixed' : 'inherit'
 
   return (
     <Box
       sx={{
         backgroundColor: palette.secondary.main,
-        width: '100vw',
-        position: 'fixed',
+        width: '100%',
+        position: footerPosition,
         bottom: 0,
         boxShadow: '0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)',
         backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))'
@@ -24,7 +28,7 @@ function Footer (): JSX.Element {
         component="footer"
         maxWidth="lg"
         sx={{
-          paddingY: '10px',
+          paddingY: { md: '10px' },
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center'
@@ -47,7 +51,7 @@ function Footer (): JSX.Element {
             sx={{ display: 'flex', justifyContent: 'center' }}
           >
             <Box>
-              <Typography variant="body1" paragraph sx={{ color: palette.secondary.contrastText, marginTop: '10px' }}>
+              <Typography variant="body1" paragraph sx={{ color: palette.secondary.contrastText, marginY: '8px', fontSize: { xs: '14px' } }}>
                 <strong>Developed by Laís Nametala</strong>
               </Typography>
             </Box>
@@ -104,7 +108,6 @@ function Footer (): JSX.Element {
             >
               <AiFillLinkedin />
             </Link>
-
           </Grid>
         </Grid>
       </Container>

@@ -52,7 +52,7 @@ export default function Films (): JSX.Element {
           flexWrap: 'wrap',
           alignSelf: 'center',
           width: '90vw',
-          marginBottom: { xs: '100px', sm: '50px', md: '120px' },
+          marginBottom: { xs: '30px', sm: '50px', md: '50px' },
           justifyContent: 'center',
           alignItems: 'top',
           gap: '20px'
