@@ -76,6 +76,12 @@ Inicie a aplicação
   npm run dev
 ```
 
+            
+Para acessar a aplicação, navegue até 
+
+  ```bash
+  http://localhost:3000
+```
     
 Execute os testes de ponta a ponta com:
     
