@@ -21,7 +21,7 @@ function App (): JSX.Element {
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <CssBaseline />
       <BrowserRouter>
-      <Header />
+        <Header />
         <Routes>
           <Route path="/films" element={<Films />} />
           <Route path="/characters" element={<Characters />} />
@@ -29,7 +29,7 @@ function App (): JSX.Element {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
         </Routes>
-      <Footer />
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   )
