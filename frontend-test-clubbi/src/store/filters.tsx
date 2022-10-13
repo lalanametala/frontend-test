@@ -27,6 +27,8 @@ const filtersSlice = createSlice({
   }
 })
 
-export const { setFilmFilter, setCharacterFilter, setLocationFilter, resetAllFilters } = filtersSlice.actions
+export const {
+  setFilmFilter, setCharacterFilter, setLocationFilter, resetAllFilters
+} = filtersSlice.actions
 
 export default filtersSlice.reducer
