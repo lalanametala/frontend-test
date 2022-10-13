@@ -24,7 +24,6 @@ export default function NotFound (): JSX.Element {
           src={totoroNotFound}
           alt="Totoro rain"
           sx={{
-            // display: { xs: 'none', sm: 'none', md: 'block' },
             height: '200px'
           }}
         />
