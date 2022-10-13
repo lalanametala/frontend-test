@@ -8,7 +8,7 @@ describe('Locations', () => {
     cy.intercept('https://ghibliapi.herokuapp.com/films', allFilms)
     cy.intercept('https://ghibliapi.herokuapp.com/characters', allCharacters)
     cy.intercept('https://ghibliapi.herokuapp.com/locations', allLocations)
-    cy.visit('http://localhost:3000/locations');
+    cy.visit('http://localhost:3000/#/locations');
   });
   it('renders the filter/sort form', () => {
     cy.get('input')
@@ -22,24 +22,22 @@ describe('Locations', () => {
     cy.get('input').first().type('ca')
     cy.get('.css-13i4rnv-MuiGrid-root').should('have.length', 2)
   })
-  it('sorts the locations alphabetically', () => {
-    // A-Z
+  it('sorts the locations alphabetically - A-Z', () => {
     cy.get('.MuiSelect-select').click()
     cy.get('[data-testid="select-0"').click()
     cy.get('.css-13i4rnv-MuiGrid-root').first().should('include.text', 'Bamboo Forest')
-
-    // Z-A
+  })
+  it('sorts the locations alphabetically - Z-A', () => {
     cy.get('.MuiSelect-select').click()
     cy.get('[data-testid="select-1"').click()
     cy.get('.css-13i4rnv-MuiGrid-root').first().should('include.text', 'Zeniba')
   })
-  it('sorts the locations by their surface water', () => {
-    // most
+  it('sorts the locations by their surface water - most', () => {
     cy.get('.MuiSelect-select').click()
     cy.get('[data-testid="select-2"').click()
     cy.get('.css-13i4rnv-MuiGrid-root').first().should('include.text', 'Fujimoto')
-
-    // least
+  })
+  it('sorts the locations by their surface water - least', () => {
     cy.get('.MuiSelect-select').click()
     cy.get('[data-testid="select-3"').click()
     cy.get('.css-13i4rnv-MuiGrid-root').first().should('include.text', 'Pazu')
