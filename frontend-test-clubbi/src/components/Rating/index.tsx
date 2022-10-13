@@ -9,17 +9,17 @@ type props = {
 export default function MovieRating ({ rating }: props): JSX.Element {
   const value = ((rating / 100) * 5)
 
-  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null)
 
-  const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>): void => {
+    setAnchorEl(event.currentTarget)
+  }
 
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
+  const handlePopoverClose = (): void => {
+    setAnchorEl(null)
+  }
 
-  const open = Boolean(anchorEl);
+  const open = Boolean(anchorEl)
 
   return (
     <>
@@ -45,17 +45,17 @@ export default function MovieRating ({ rating }: props): JSX.Element {
       <Popover
         id="mouse-over-popover"
         sx={{
-          pointerEvents: 'none',
+          pointerEvents: 'none'
         }}
         open={open}
         anchorEl={anchorEl}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'left',
+          horizontal: 'left'
         }}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'left',
+          horizontal: 'left'
         }}
         onClose={handlePopoverClose}
         disableRestoreFocus
