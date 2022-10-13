@@ -1,23 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export type filmParams = {
-  sort: 'asc' | 'desc' | ''
-  parameter: 'title' | 'release_date' | 'running_time' | 'rt_score' | ''
+  sort: 'asc' | 'desc'
+  parameter: 'title' | 'release_date' | 'running_time' | 'rt_score'
 }
 
 export type characterParams = {
-  sort: 'asc' | 'desc' | ''
-  parameter: 'name' | 'age' | ''
+  sort: 'asc' | 'desc'
+  parameter: 'name' | 'age'
 }
 
 export type locationParams = {
-  sort: 'asc' | 'desc' | ''
-  parameter: 'name' | 'surface_water' | ''
+  sort: 'asc' | 'desc'
+  parameter: 'name' | 'surface_water'
 }
 
-const INITIAL_FILM_SORT: filmParams = { sort: '', parameter: '' }
-const INITIAL_CHAR_SORT: characterParams = { sort: '', parameter: '' }
-const INITIAL_LOC_SORT: locationParams = { sort: '', parameter: '' }
+const INITIAL_FILM_SORT: filmParams = {} as filmParams
+const INITIAL_CHAR_SORT: characterParams = { } as characterParams
+const INITIAL_LOC_SORT: locationParams = { } as locationParams
 
 const orderSlice = createSlice({
   name: 'sort',
