@@ -28,32 +28,43 @@ export default function DisplayCard (film: IFilm): JSX.Element {
     setExpanded(!expanded)
   }
 
+  const {
+    title,
+    original_title: originalTitle,
+    release_date: releaseDate,
+    running_time: runningTime,
+    rt_score: rtScore,
+    movie_banner: movieBanner,
+    description,
+    director,
+    producer
+  } = film
+
   return (
-    <Card 
+    <Card
       elevation={elevation}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      sx={{ width: { xs: '100%', sm: '400px', md: '400px'} }}
+      sx={{ width: { xs: '100%', sm: '400px', md: '400px' } }}
     >
       <CardHeader
-        title={film.title}
-        subheader={film.original_title}
+        title={title}
+        subheader={originalTitle}
       />
       <CardContent sx={{ paddingTop: 0, paddingBottom: '5px' }}>
         <Typography>
-          {`${film.release_date} - ${film.running_time} min`}
+          {`${releaseDate} - ${runningTime} min`}
         </Typography>
       </CardContent>
       <CardContent sx={{ paddingTop: 0 }}>
-        <MovieRating rating={film.rt_score} />
+        <MovieRating rating={rtScore} />
       </CardContent>
       <CardMedia
         component="img"
         height="194"
-        
-        image={film.movie_banner}
-        alt={film.title}
-      />      
+        image={movieBanner}
+        alt={title}
+      />
       <CardActions disableSpacing>
         <ExpandMore
           expand={expanded}
@@ -65,18 +76,18 @@ export default function DisplayCard (film: IFilm): JSX.Element {
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent sx={{ paddingTop: 0, paddingBottom: '5px' }}>          
+        <CardContent sx={{ paddingTop: 0, paddingBottom: '5px' }}>
           <Typography sx={{ paddingBottom: '14px', fontSize: '20px' }}>
             <strong>Description</strong>
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ paddingBottom: '14px' }}>
-            {film.description}
+            {description}
           </Typography>
           <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
-            {`Directed By ${film.director}`}
+            {`Directed By ${director}`}
           </Typography>
           <Typography variant="body2" sx={{ paddingBottom: '5px', fontStyle: 'italic' }}>
-            {`Produced By ${film.producer}`}
+            {`Produced By ${producer}`}
           </Typography>
         </CardContent>
       </Collapse>
