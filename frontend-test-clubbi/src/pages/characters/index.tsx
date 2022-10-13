@@ -20,7 +20,6 @@ export default function Characters (): JSX.Element {
   const characterSort = useSelector((state: RootState) => state.sort.characters)
   const storedFilms = useSelector((state: RootState) => state.films.data)
 
-
   useEffect(() => {
     if (!storedCharacters.length) dispatch(fetchCharactersData())
     if (!storedFilms.length) dispatch(fetchFilmsData())
@@ -42,7 +41,7 @@ export default function Characters (): JSX.Element {
         flexDirection: 'column',
         width: '100vw',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
       }}
     >
       <FilterOrderForm page="characters" filterBy="Search by characters" sortOptions={charSortOptions} />
@@ -68,7 +67,7 @@ export default function Characters (): JSX.Element {
             <Grid key={item.id} item sx={{ minHeight: '' }}>
               <DisplayCard {...item} />
             </Grid>
-        ))}
+          ))}
       </Grid>
     </Container>
   )
