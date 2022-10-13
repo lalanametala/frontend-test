@@ -64,7 +64,7 @@ Pre-requisitos de sistema:
   cd frontend-test-clubbi
 ```
   
-Instale as dependências **[Caso existam]**
+Instale as dependências
 
   ```bash
   npm install
@@ -112,7 +112,7 @@ Execute os testes no navegador com:
   cd frontend-test-clubbi
 ```
   
-Instale as dependências **[Caso existam]**
+Instale as dependências
 
   ```bash
   npm install
