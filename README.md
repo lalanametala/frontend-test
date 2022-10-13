@@ -13,9 +13,9 @@ Este repositório aborda as questões referentes ao desafio técnico proposto pe
   
 ## :wrench: Dependências utilizadas
 
-**Dependencies:** Docker, React, React Router, Redux Toolkit e Material UI
+**Dependencies:** Docker, React, React Router, Redux Toolkit, Cypress e Material UI
 
-**DevDependencies:** Vite, Cypress, ESLint, StyleLint e Typescript 
+**DevDependencies:** Vite, ESLint, StyleLint e Typescript 
   
  ---
  
@@ -36,6 +36,10 @@ Este repositório aborda as questões referentes ao desafio técnico proposto pe
   
 ## 📌 Instalação da aplicação
 <h3>Para instalar a aplicação, siga os seguintes passos:</h3>
+
+Pre-requisitos de sistema:
+- Git
+- Node
 
     
  Clone o repositório
