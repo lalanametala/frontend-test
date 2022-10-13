@@ -22,7 +22,7 @@ export default function About (): JSX.Element {
           component="h2"
           align="left"
           gutterBottom
-          sx={{ fontFamily: '"Sniglet", cursive', fontWeight: 700, paddingBottom: '20px', fontSize: { xs: '30px'} }}
+          sx={{ fontFamily: '"Sniglet", cursive', fontWeight: 700, paddingBottom: '20px', fontSize: { xs: '30px' } }}
         >
           Studio Ghibli
         </Typography>
