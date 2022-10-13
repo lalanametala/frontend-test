@@ -34,7 +34,7 @@ export default function Home (): JSX.Element {
         marginY: { xs: '10px', sm: '50px', md: '120px' },
         justifyContent: 'space-around',
         alignItems: 'center',
-        gap: {xs: '70px', md: '100px'}
+        gap: { xs: '70px', md: '100px' }
       }}
       columns={{ xs: 4, sm: 4, md: 12 }}
     >
