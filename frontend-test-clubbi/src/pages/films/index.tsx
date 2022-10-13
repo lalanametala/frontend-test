@@ -39,10 +39,10 @@ export default function Films (): JSX.Element {
         flexDirection: 'column',
         width: '100vw',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
       }}
     >
-      <FilterOrderForm page="films" filterBy="Search by films" sortOptions={filmSortOptions}/>
+      <FilterOrderForm page="films" filterBy="Search by films" sortOptions={filmSortOptions} />
       <Grid
         container
         component="section"
@@ -65,7 +65,7 @@ export default function Films (): JSX.Element {
             <Grid key={item.id} item>
               <DisplayCard {...item} />
             </Grid>
-        ))}
+          ))}
       </Grid>
     </Container>
   )
