@@ -1,6 +1,8 @@
 # Processo Seletivo Clubbi - Pessoa Desenvolvedora Frontend - Teste Técnico
 
-Este repositório aborda as questões referentes ao desafio técnico proposto pela Clubbi para vaga de Dev Frontend
+Este repositório aborda as questões referentes ao desafio técnico proposto pela Clubbi para vaga de Dev Frontend.
+
+[Clique aqui](https://studio-ghibli.lalanametala.vercel.app/) e confira o deploy da aplicação no seu navegador.
 
 ## 👩‍💻 Autora
 
