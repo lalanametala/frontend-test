@@ -1,65 +1,65 @@
 import {
   Container,
   Grid, MenuItem,
-  TextField,
-} from '@mui/material';
-import React, { ChangeEvent, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setCharacterFilter, setFilmFilter, setLocationFilter } from '../../store/filters';
-import { setCharacterSort, setFilmSort, setLocationSort } from '../../store/sort';
-import { sortOptions } from './utils';
+  TextField
+} from '@mui/material'
+import React, { ChangeEvent, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setCharacterFilter, setFilmFilter, setLocationFilter } from '../../store/filters'
+import { setCharacterSort, setFilmSort, setLocationSort } from '../../store/sort'
+import { sortOptionsType } from './utils'
 
 type props = {
   page: string
   filterBy: string
-  sortOptions: sortOptions[]
+  sortOptions: sortOptionsType[]
 }
 
-function FilterOrderForm({ page, filterBy, sortOptions }: props) {
+function FilterOrderForm ({ page, filterBy, sortOptions }: props): JSX.Element {
   const [filterForm, setFilterForm] = useState({
     filterInput: '',
-    orderSelect: '',
+    orderSelect: ''
   })
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const handleChange = ({ target }: ChangeEvent) => {
+  const handleChange = ({ target }: ChangeEvent): void => {
     const { name, value } = target as HTMLTextAreaElement
-    
+
     if (name === 'filterInput') {
-      setFilterForm({...filterForm, filterInput: value })
+      setFilterForm({ ...filterForm, filterInput: value })
       switch (page) {
         case 'films':
           dispatch(setFilmFilter(value))
-          break;
+          break
         case 'characters':
           dispatch(setCharacterFilter(value))
-          break;
+          break
         default:
           dispatch(setLocationFilter(value))
-          break;
+          break
       }
     } else {
-      setFilterForm({...filterForm, orderSelect: value })
+      setFilterForm({ ...filterForm, orderSelect: value })
 
-      const [parameter, sort] = value.split('-')  
-    
+      const [parameter, sort] = value.split('-')
+
       switch (page) {
         case 'films':
           dispatch(setFilmSort({ parameter, sort }))
-          break;
+          break
         case 'characters':
           dispatch(setCharacterSort({ parameter, sort }))
-          break;
+          break
         default:
           dispatch(setLocationSort({ parameter, sort }))
-          break;
+          break
       }
     }
-  };
+  }
 
   return (
-    <Container 
+    <Container
       component="section"
       sx={{
         marginTop: { xs: '100px', md: '140px' },
@@ -87,8 +87,8 @@ function FilterOrderForm({ page, filterBy, sortOptions }: props) {
             select
             onChange={handleChange}
           >
-            {sortOptions.map(({title, value, label}, index) => (
-              <MenuItem data-testid={`select-${index}`} key={label} title={title} value={value} >
+            {sortOptions.map(({ title, value, label }, index) => (
+              <MenuItem data-testid={`select-${index}`} key={label} title={title} value={value}>
                 {label}
               </MenuItem>
             ))}
@@ -96,7 +96,7 @@ function FilterOrderForm({ page, filterBy, sortOptions }: props) {
         </Grid>
       </Grid>
     </Container>
-  );
+  )
 }
 
-export default FilterOrderForm;
+export default FilterOrderForm
