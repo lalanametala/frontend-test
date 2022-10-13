@@ -18,7 +18,7 @@ export default function Locations (): JSX.Element {
   const dispatch = useAppDispatch()
   const storedLocations = useSelector((state: RootState) => state.locations.data)
   const locationFilter = useSelector((state: RootState) => state.filters.locations)
-  const locationSort = useSelector((state: RootState) => state.sort.locations) 
+  const locationSort = useSelector((state: RootState) => state.sort.locations)
   const storedFilms = useSelector((state: RootState) => state.films.data)
   const storedCharacters = useSelector((state: RootState) => state.characters.data)
 
@@ -71,7 +71,7 @@ export default function Locations (): JSX.Element {
             <Grid key={item.id} item>
               <DisplayCard {...item} />
             </Grid>
-        ))}
+          ))}
       </Grid>
     </Container>
   )
